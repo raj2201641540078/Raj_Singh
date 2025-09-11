@@ -1,0 +1,398 @@
+:root {
+  --bg-1: #05061a;
+  --bg-2: #0d142a;
+  --accent: #00e0c6;
+  --accent-2: #4de3b8;
+  --yellow: #ffcb6b;
+  --blue: #82aaff;
+  --purple: #c792ea;
+  --green: #c3e88d;
+  --red: #f07178;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Reset & full background */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  color: #e9f7f4;
+}
+
+/* Background */
+.home {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  padding: 8rem 2rem 4rem; /* 🔥 Increased top padding */
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+/* 🌟 Stars animation */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: transparent;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(1.5px 1.5px at 80% 40%, white, transparent),
+    radial-gradient(2px 2px at 60% 80%, white, transparent),
+    radial-gradient(1.5px 1.5px at 40% 60%, white, transparent),
+    radial-gradient(2px 2px at 70% 20%, white, transparent);
+  animation: twinkle 6s linear infinite;
+}
+
+@keyframes twinkle {
+  from { transform: translateY(0); opacity: 1; }
+  50% { opacity: 0.3; }
+  to { transform: translateY(-20px); opacity: 1; }
+}
+
+/* Layout */
+.home-inner {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 540px;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+
+  /* 🌟 Fade-up animation */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Left Side */
+.left {
+  text-align: left;
+}
+
+/* Badges */
+.intro-badges {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.badge {
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.85);
+}
+.badge.accent {
+  background: linear-gradient(90deg, #2b2b65, #141a3a);
+  color: #cfeee6;
+}
+
+/* Heading with typing */
+.hero {
+  font-size: 3.2rem;
+  line-height: 1.2;
+  margin: 10px 0 18px;
+  color: #ffffff;
+  font-family: "Fira Code", monospace;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.cursor {
+  display: inline-block;
+  margin-left: 3px;
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* Role pills */
+.role-badges {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.pill {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  transition: transform 0.3s ease;
+}
+.pill:hover {
+  transform: translateY(-3px);
+}
+
+/* Blue pill with glow */
+.pill.blue {
+  background: linear-gradient(90deg, #0b2b4c, #17385f);
+  color: var(--blue);
+  animation: glowBlue 6s ease-in-out infinite;
+}
+@keyframes glowBlue {
+  0% { box-shadow: 0 0 5px rgba(130, 170, 255, 0.3); }
+  50% { box-shadow: 0 0 18px rgba(130, 170, 255, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(130, 170, 255, 0.3); }
+}
+
+/* Yellow pill with glow */
+.pill.yellow {
+  background: linear-gradient(90deg, #2b2108, #553f19);
+  color: var(--yellow);
+  animation: glowYellow 6s ease-in-out infinite;
+}
+@keyframes glowYellow {
+  0% { box-shadow: 0 0 5px rgba(255, 203, 107, 0.3); }
+  50% { box-shadow: 0 0 18px rgba(255, 203, 107, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(255, 203, 107, 0.3); }
+}
+
+/* Purple pill with glow */
+.pill.purple {
+  background: linear-gradient(90deg, #2b084c, #3f1955);
+  color: var(--purple);
+  animation: glowPurple 6s ease-in-out infinite;
+}
+@keyframes glowPurple {
+  0% { box-shadow: 0 0 5px rgba(199, 146, 234, 0.3); }
+  50% { box-shadow: 0 0 18px rgba(199, 146, 234, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(199, 146, 234, 0.3); }
+}
+
+/* Subtext */
+.sub-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  margin: 20px 0 30px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.btn.primary {
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+}
+.btn.primary:hover {
+  background: rgba(0, 224, 198, 0.1);
+}
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+.btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Code Section */
+.right {
+  display: flex;
+  justify-content: center;
+}
+.code-window {
+  width: 100%;
+  background: #0a1124;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 224, 198, 0.25);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+.code-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 8px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+.file-title {
+  margin-left: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+}
+
+/* Code */
+.code-block {
+  padding: 18px;
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+/* Syntax highlighting */
+.keyword { color: var(--purple); }
+.property { color: var(--blue); }
+.string { color: var(--yellow); }
+.boolean { color: var(--green); }
+.number { color: var(--red); }
+
+/* Scroll hint */
+.scroll-hint {
+  text-align: center;
+  margin-top: 28px;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 13px;
+}
+
+/* ================= */
+/* WHO I AM SECTION  */
+/* ================= */
+.whoiam {
+  margin-top: 120px; /* space below navbar */
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 350px; /* left = text, right = photo */
+  gap: 40px;
+  align-items: center;
+  padding: 60px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* 🌟 Lighter background than home */
+  background: linear-gradient(180deg, #0d142a, #151c36);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 224, 198, 0.05);
+}
+
+.whoiam-text {
+  font-family: "Fira Code", monospace;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: pre-wrap; /* keeps line breaks */
+  line-height: 1.6;
+  border-left: 3px solid var(--accent);
+  padding-left: 18px;
+  overflow: hidden;
+}
+
+/* Cursor blinking */
+.whoiam-text .cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--accent);
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+.whoiam-photo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.whoiam-photo img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 16px;
+  border: 2px solid var(--accent);
+  box-shadow: 0 10px 25px rgba(0, 224, 198, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.whoiam-photo img:hover {
+  transform: scale(1.05);
+}
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 1024px) {
+  .home-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 32px;
+  }
+  .left {
+    text-align: center;
+  }
+  .intro-badges,
+  .role-badges,
+  .buttons {
+    justify-content: center;
+  }
+  .hero {
+    font-size: 2.5rem;
+    white-space: normal;
+  }
+  .sub-description {
+    font-size: 1rem;
+  }
+  .whoiam {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .whoiam-text {
+    border-left: none;
+    padding-left: 0;
+  }
+  .whoiam-photo {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    font-size: 2rem;
+  }
+  .sub-description {
+    font-size: 0.95rem;
+  }
+  .pill {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  .whoiam {
+    padding: 40px 15px;
+    gap: 20px;
+  }
+  .whoiam-text {
+    font-size: 1rem;
+  }
+  .whoiam-photo img {
+    max-width: 220px;
+  }
+}

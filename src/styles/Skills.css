@@ -1,0 +1,211 @@
+/* ===== Skills Section ===== */
+.skills-section {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #05061a, #0d142a);
+  color: white;
+  padding: 120px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌌 Background Glow */
+.skills-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 224, 198, 0.08) 0%, transparent 70%);
+  animation: bgPulse 8s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes bgPulse {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(1.2); opacity: 0.7; }
+}
+
+/* ===== Static Circular Cluster ===== */
+.skills-circle {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: 2;
+  animation: rotateCircle 40s linear infinite;
+}
+
+@keyframes rotateCircle {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.circle-icon {
+  position: absolute;
+  font-size: 2.6rem;
+  transition: transform 0.3s, filter 0.3s;
+  color: currentColor;
+}
+
+.circle-icon:hover {
+  transform: scale(1.5) rotate(15deg);
+  filter: drop-shadow(0 0 8px currentColor) brightness(1.3);
+}
+
+/* Arrange icons around circle */
+.skills-circle .circle-icon:nth-child(1) { transform: rotate(0deg) translate(160px) rotate(0deg); }
+.skills-circle .circle-icon:nth-child(2) { transform: rotate(40deg) translate(160px) rotate(-40deg); }
+.skills-circle .circle-icon:nth-child(3) { transform: rotate(80deg) translate(160px) rotate(-80deg); }
+.skills-circle .circle-icon:nth-child(4) { transform: rotate(120deg) translate(160px) rotate(-120deg); }
+.skills-circle .circle-icon:nth-child(5) { transform: rotate(160deg) translate(160px) rotate(-160deg); }
+.skills-circle .circle-icon:nth-child(6) { transform: rotate(200deg) translate(160px) rotate(-200deg); }
+.skills-circle .circle-icon:nth-child(7) { transform: rotate(240deg) translate(160px) rotate(-240deg); }
+.skills-circle .circle-icon:nth-child(8) { transform: rotate(280deg) translate(160px) rotate(-280deg); }
+.skills-circle .circle-icon:nth-child(9) { transform: rotate(320deg) translate(160px) rotate(-320deg); }
+.skills-circle .circle-icon:nth-child(10) { transform: rotate(360deg) translate(160px) rotate(-360deg); }
+
+/* ===== Skills Grid ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== Skill Card ===== */
+.skill-card {
+  background: #0d142a;
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.skill-card:nth-child(1) { animation-delay: 0.2s; }
+.skill-card:nth-child(2) { animation-delay: 0.4s; }
+.skill-card:nth-child(3) { animation-delay: 0.6s; }
+.skill-card:nth-child(4) { animation-delay: 0.8s; }
+.skill-card:nth-child(5) { animation-delay: 1s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.skill-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 25px rgba(0, 224, 198, 0.4);
+}
+
+.skill-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #00e0c6;
+  border-bottom: 1px solid rgba(0, 224, 198, 0.25);
+  padding-bottom: 8px;
+}
+
+/* ⚡ Lightning Border Effect */
+.lightning-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(90deg, #00e0c6, #0ff, #00e0c6);
+  background-size: 300% 300%;
+  animation: lightningFlow 3s linear infinite, lightningPulse 2s ease-in-out infinite;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+@keyframes lightningFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes lightningPulse {
+  0% { opacity: 0.6; filter: brightness(1); }
+  50% { opacity: 1; filter: brightness(1.5); }
+  100% { opacity: 0.6; filter: brightness(1); }
+}
+
+/* ===== Pills ===== */
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.skill-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 224, 198, 0.25);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s, color 0.3s;
+  animation: pillGlow 4s ease-in-out infinite alternate;
+}
+
+.skill-pill:hover {
+  background: #00e0c6;
+  color: #05061a;
+  font-weight: bold;
+  border-color: #00e0c6;
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 0 15px #00e0c6;
+}
+
+@keyframes pillGlow {
+  0% { box-shadow: 0 0 6px rgba(0, 224, 198, 0.2); }
+  100% { box-shadow: 0 0 16px rgba(0, 224, 198, 0.7); }
+}
+
+.skill-icon svg {
+  font-size: 1.1rem;
+  transition: filter 0.3s;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media screen and (max-width: 1024px) {
+  .skills-circle { width: 300px; height: 300px; }
+  .circle-icon { font-size: 2.2rem; }
+}
+
+@media screen and (max-width: 768px) {
+  .skills-circle { width: 250px; height: 250px; }
+  .circle-icon { font-size: 2rem; }
+  .skill-card { padding: 20px; }
+}
+
+@media screen and (max-width: 480px) {
+  .skills-section { padding: 100px 15px 40px; gap: 60px; }
+  .skills-circle { width: 200px; height: 200px; }
+  .circle-icon { font-size: 1.6rem; }
+  .skill-card { padding: 16px; }
+  .skills-grid { gap: 20px; }
+  .skill-pill { padding: 6px 10px; font-size: 0.8rem; }
+}

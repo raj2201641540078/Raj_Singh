@@ -1,0 +1,180 @@
+.achievements {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0a0a23, #0d0d2b 70%);
+  color: white;
+  padding: 100px 20px 50px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #00e0c6, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 50px;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.achievement-card {
+  position: relative;
+  background: rgba(25, 25, 60, 0.9);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+  color: white;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* 🎬 Fade-up animation */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.achievement-card:nth-child(1) { animation-delay: 0.2s; }
+.achievement-card:nth-child(2) { animation-delay: 0.4s; }
+.achievement-card:nth-child(3) { animation-delay: 0.6s; }
+.achievement-card:nth-child(4) { animation-delay: 0.8s; }
+.achievement-card:nth-child(5) { animation-delay: 1s; }
+.achievement-card:nth-child(6) { animation-delay: 1.2s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ⚡ Lightning border effect */
+.achievement-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(120deg, #00e0c6, #3b82f6, #00e0c6, #3b82f6);
+  background-size: 400% 400%;
+  animation: lightningBorder 6s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes lightningBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.achievement-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0, 224, 198, 0.6);
+}
+
+/* Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-icon {
+  font-size: 1.6rem;
+  color: #00e0c6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+}
+
+.achievement-card h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.5px;
+  word-spacing: 2px; /* ✅ Prevents words sticking */
+}
+
+.achievement-card h3 strong {
+  color: #00e0c6;
+  font-weight: bold;
+  margin-right: 4px; /* ✅ Ensures gap after bold */
+}
+
+/* Description */
+.description {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin: 10px 0 15px;
+  line-height: 1.5;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #7aa2ff;
+}
+
+/* ========================= */
+/* 📱 RESPONSIVE DESIGN */
+/* ========================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 2.4rem;
+  }
+
+  .achievements {
+    padding: 80px 15px 40px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .achievement-card {
+    padding: 15px;
+  }
+
+  .achievement-card h3 {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+}
