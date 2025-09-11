@@ -52,7 +52,7 @@
   text-decoration: none;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   padding: 8px 14px;
   border-radius: 999px;
   display: flex;
@@ -83,20 +83,12 @@
   transform: translateY(-2px);
 }
 
-/* Active link glow */
+/* Active link (no animation now) */
 .nav-links a.active {
   color: #fff;
   font-weight: 600;
   background: var(--gradient);
-  box-shadow: 0 0 15px rgba(0, 224, 198, 0.6),
-              0 0 25px rgba(0, 123, 255, 0.4);
-  animation: pulseGlow 2s infinite;
-}
-
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 10px rgba(0, 224, 198, 0.6); }
-  50% { box-shadow: 0 0 25px rgba(0, 123, 255, 0.8); }
-  100% { box-shadow: 0 0 10px rgba(0, 224, 198, 0.6); }
+  box-shadow: 0 0 10px rgba(0, 224, 198, 0.4);
 }
 
 /* =================== */
