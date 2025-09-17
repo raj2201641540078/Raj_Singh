@@ -30,7 +30,7 @@
   100% { transform: scale(1.2); opacity: 0.7; }
 }
 
-/* ===== Static Circular Cluster ===== */
+/* ===== Rotating Circle ===== */
 .skills-circle {
   position: relative;
   width: 350px;
@@ -76,12 +76,13 @@
 /* ===== Skills Grid ===== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   max-width: 1200px;
   width: 100%;
   position: relative;
   z-index: 2;
+  padding: 0 10px;
 }
 
 /* ===== Skill Card ===== */
@@ -184,28 +185,36 @@
   100% { box-shadow: 0 0 16px rgba(0, 224, 198, 0.7); }
 }
 
-.skill-icon svg {
-  font-size: 1.1rem;
-  transition: filter 0.3s;
-}
-
 /* ===== Responsive Adjustments ===== */
+
+/* Large tablets */
 @media screen and (max-width: 1024px) {
   .skills-circle { width: 300px; height: 300px; }
   .circle-icon { font-size: 2.2rem; }
 }
 
+/* Tablets */
 @media screen and (max-width: 768px) {
-  .skills-circle { width: 250px; height: 250px; }
-  .circle-icon { font-size: 2rem; }
+  .skills-section { padding: 100px 15px 50px; gap: 60px; }
+  .skills-circle { width: 240px; height: 240px; }
+  .circle-icon { font-size: 1.9rem; }
   .skill-card { padding: 20px; }
 }
 
+/* Phones */
 @media screen and (max-width: 480px) {
-  .skills-section { padding: 100px 15px 40px; gap: 60px; }
+  .skills-section { padding: 80px 12px 40px; gap: 50px; }
   .skills-circle { width: 200px; height: 200px; }
-  .circle-icon { font-size: 1.6rem; }
+  .circle-icon { font-size: 1.5rem; }
+  .skills-grid { gap: 18px; }
   .skill-card { padding: 16px; }
-  .skills-grid { gap: 20px; }
   .skill-pill { padding: 6px 10px; font-size: 0.8rem; }
+}
+
+/* Very small devices */
+@media screen and (max-width: 360px) {
+  .skills-circle { width: 170px; height: 170px; }
+  .circle-icon { font-size: 1.3rem; }
+  .skill-card h3 { font-size: 1.1rem; }
+  .skill-pill { font-size: 0.75rem; padding: 5px 8px; }
 }

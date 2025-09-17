@@ -86,25 +86,36 @@ const Home = () => {
             Transforming ideas into scalable & secure solutions 💻 🔐
           </p>
 
-          <div className="buttons">
-            <a
-              className="btn primary"
-              href="https://codolio.com/profile/Rajsingh"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              About Me
-            </a>
-            <a
-              className="btn secondary"
-              href="https://drive.google.com/file/d/1FrDxOt_k-cVj0efjSiAyF2oh78C2tSKA/view"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Get Resume
-            </a>
-          </div>
+         <div className="buttons">
+  <a
+    className="btn primary"
+    href="https://codolio.com/profile/Rajsingh"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    About Me
+  </a>
+  <a
+    className="btn secondary"
+    href="https://drive.google.com/file/d/1FrDxOt_k-cVj0efjSiAyF2oh78C2tSKA/view"
+    target="_blank"
+    rel="noreferrer"
+  >
+    Get Resume
+  </a>
+  <a
+    className="btn primary"
+    href="https://github.com/raj2201641540078"
+    target="_blank"
+    rel="noreferrer"
+  >
+    Github
+  </a>
+</div>
+
+          
         </div>
+        
 
         {/* RIGHT SIDE */}
         <div className="right">

@@ -16,12 +16,15 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
   color: #e9f7f4;
+  overflow-x: hidden;
 }
 
-/* Background */
+/* ===================== */
+/* HOME SECTION          */
+/* ===================== */
 .home {
   min-height: 100vh;
   width: 100%;
@@ -29,7 +32,7 @@ html, body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
-  padding: 8rem 2rem 4rem; /* 🔥 Increased top padding */
+  padding: 8rem 2rem 4rem; /* 🔥 Top padding below navbar */
   position: relative;
   overflow: hidden;
   flex-direction: column;
@@ -70,7 +73,7 @@ html, body {
   position: relative;
   z-index: 2;
 
-  /* 🌟 Fade-up animation */
+  /* Fade-up animation */
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 1s ease forwards;
@@ -81,7 +84,9 @@ html, body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Left Side */
+/* ===================== */
+/* LEFT SIDE (Text)      */
+/* ===================== */
 .left {
   text-align: left;
 }
@@ -89,6 +94,7 @@ html, body {
 /* Badges */
 .intro-badges {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 12px;
 }
@@ -104,7 +110,7 @@ html, body {
   color: #cfeee6;
 }
 
-/* Heading with typing */
+/* Hero with typing */
 .hero {
   font-size: 3.2rem;
   line-height: 1.2;
@@ -127,6 +133,7 @@ html, body {
 /* Role pills */
 .role-badges {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 22px;
 }
@@ -142,41 +149,15 @@ html, body {
   transform: translateY(-3px);
 }
 
-/* Blue pill with glow */
-.pill.blue {
-  background: linear-gradient(90deg, #0b2b4c, #17385f);
-  color: var(--blue);
-  animation: glowBlue 6s ease-in-out infinite;
-}
-@keyframes glowBlue {
-  0% { box-shadow: 0 0 5px rgba(130, 170, 255, 0.3); }
-  50% { box-shadow: 0 0 18px rgba(130, 170, 255, 0.8); }
-  100% { box-shadow: 0 0 5px rgba(130, 170, 255, 0.3); }
-}
+/* Glow pills */
+.pill.blue { background: linear-gradient(90deg, #0b2b4c, #17385f); color: var(--blue); animation: glowBlue 6s ease-in-out infinite; }
+@keyframes glowBlue { 0%{box-shadow:0 0 5px rgba(130,170,255,.3);}50%{box-shadow:0 0 18px rgba(130,170,255,.8);}100%{box-shadow:0 0 5px rgba(130,170,255,.3);} }
 
-/* Yellow pill with glow */
-.pill.yellow {
-  background: linear-gradient(90deg, #2b2108, #553f19);
-  color: var(--yellow);
-  animation: glowYellow 6s ease-in-out infinite;
-}
-@keyframes glowYellow {
-  0% { box-shadow: 0 0 5px rgba(255, 203, 107, 0.3); }
-  50% { box-shadow: 0 0 18px rgba(255, 203, 107, 0.8); }
-  100% { box-shadow: 0 0 5px rgba(255, 203, 107, 0.3); }
-}
+.pill.yellow { background: linear-gradient(90deg, #2b2108, #553f19); color: var(--yellow); animation: glowYellow 6s ease-in-out infinite; }
+@keyframes glowYellow { 0%{box-shadow:0 0 5px rgba(255,203,107,.3);}50%{box-shadow:0 0 18px rgba(255,203,107,.8);}100%{box-shadow:0 0 5px rgba(255,203,107,.3);} }
 
-/* Purple pill with glow */
-.pill.purple {
-  background: linear-gradient(90deg, #2b084c, #3f1955);
-  color: var(--purple);
-  animation: glowPurple 6s ease-in-out infinite;
-}
-@keyframes glowPurple {
-  0% { box-shadow: 0 0 5px rgba(199, 146, 234, 0.3); }
-  50% { box-shadow: 0 0 18px rgba(199, 146, 234, 0.8); }
-  100% { box-shadow: 0 0 5px rgba(199, 146, 234, 0.3); }
-}
+.pill.purple { background: linear-gradient(90deg, #2b084c, #3f1955); color: var(--purple); animation: glowPurple 6s ease-in-out infinite; }
+@keyframes glowPurple { 0%{box-shadow:0 0 5px rgba(199,146,234,.3);}50%{box-shadow:0 0 18px rgba(199,146,234,.8);}100%{box-shadow:0 0 5px rgba(199,146,234,.3);} }
 
 /* Subtext */
 .sub-description {
@@ -188,8 +169,8 @@ html, body {
 /* Buttons */
 .buttons {
   display: flex;
-  gap: 14px;
   flex-wrap: wrap;
+  gap: 14px;
 }
 .btn {
   padding: 12px 20px;
@@ -203,24 +184,20 @@ html, body {
   border: 1.5px solid var(--accent);
   color: var(--accent);
 }
-.btn.primary:hover {
-  background: rgba(0, 224, 198, 0.1);
-}
+.btn.primary:hover { background: rgba(0, 224, 198, 0.1); }
 .btn.secondary {
   background: rgba(255, 255, 255, 0.06);
   color: #fff;
 }
-.btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
+.btn.secondary:hover { background: rgba(255, 255, 255, 0.12); }
 
-/* Code Section */
-.right {
-  display: flex;
-  justify-content: center;
-}
+/* ===================== */
+/* RIGHT SIDE (Code Box) */
+/* ===================== */
+.right { display: flex; justify-content: center; }
 .code-window {
   width: 100%;
+  max-width: 540px;
   background: #0a1124;
   border-radius: 12px;
   border: 1px solid rgba(0, 224, 198, 0.25);
@@ -232,11 +209,7 @@ html, body {
   padding: 8px 12px;
   gap: 8px;
 }
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
 .dot.red { background: #ff5f56; }
 .dot.yellow { background: #ffbd2e; }
 .dot.green { background: #27c93f; }
@@ -245,8 +218,6 @@ html, body {
   color: rgba(255, 255, 255, 0.7);
   font-size: 13px;
 }
-
-/* Code */
 .code-block {
   padding: 18px;
   font-family: "Fira Code", monospace;
@@ -271,21 +242,19 @@ html, body {
   font-size: 13px;
 }
 
-/* ================= */
-/* WHO I AM SECTION  */
-/* ================= */
+/* ===================== */
+/* WHO I AM SECTION      */
+/* ===================== */
 .whoiam {
-  margin-top: 120px; /* space below navbar */
+  margin-top: 120px;
   width: 100%;
   max-width: 1000px;
   display: grid;
-  grid-template-columns: 1fr 350px; /* left = text, right = photo */
+  grid-template-columns: 1fr 350px;
   gap: 40px;
   align-items: center;
   padding: 60px 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-
-  /* 🌟 Lighter background than home */
   background: linear-gradient(180deg, #0d142a, #151c36);
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 224, 198, 0.05);
@@ -295,14 +264,12 @@ html, body {
   font-family: "Fira Code", monospace;
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.9);
-  white-space: pre-wrap; /* keeps line breaks */
+  white-space: pre-wrap;
   line-height: 1.6;
   border-left: 3px solid var(--accent);
   padding-left: 18px;
   overflow: hidden;
 }
-
-/* Cursor blinking */
 .whoiam-text .cursor {
   display: inline-block;
   margin-left: 2px;
@@ -310,18 +277,11 @@ html, body {
   font-weight: bold;
   animation: blink 1s infinite;
 }
-
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
-
 .whoiam-photo {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-
 .whoiam-photo img {
   width: 100%;
   max-width: 280px;
@@ -330,33 +290,28 @@ html, body {
   box-shadow: 0 10px 25px rgba(0, 224, 198, 0.2);
   transition: transform 0.4s ease;
 }
+.whoiam-photo img:hover { transform: scale(1.05); }
 
-.whoiam-photo img:hover {
-  transform: scale(1.05);
-}
+/* ===================== */
+/* RESPONSIVE FIXES      */
+/* ===================== */
 
-/* ✅ Responsive Adjustments */
+/* Laptops/Tablets */
 @media (max-width: 1024px) {
   .home-inner {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 32px;
   }
-  .left {
-    text-align: center;
-  }
+  .left { text-align: center; }
   .intro-badges,
   .role-badges,
-  .buttons {
-    justify-content: center;
-  }
+  .buttons { justify-content: center; }
   .hero {
     font-size: 2.5rem;
     white-space: normal;
   }
-  .sub-description {
-    font-size: 1rem;
-  }
+  .sub-description { font-size: 1rem; }
   .whoiam {
     grid-template-columns: 1fr;
     text-align: center;
@@ -365,34 +320,27 @@ html, body {
     border-left: none;
     padding-left: 0;
   }
-  .whoiam-photo {
-    justify-content: center;
-  }
+  .whoiam-photo { justify-content: center; }
 }
 
+/* Phones */
 @media (max-width: 600px) {
-  .hero {
-    font-size: 2rem;
-  }
-  .sub-description {
-    font-size: 0.95rem;
-  }
-  .pill {
-    font-size: 0.8rem;
-    padding: 6px 10px;
-  }
-  .btn {
-    padding: 10px 16px;
-    font-size: 0.9rem;
-  }
+  .hero { font-size: 2rem; }
+  .sub-description { font-size: 0.95rem; }
+  .pill { font-size: 0.8rem; padding: 6px 10px; }
+  .btn { padding: 10px 16px; font-size: 0.9rem; }
   .whoiam {
     padding: 40px 15px;
     gap: 20px;
   }
-  .whoiam-text {
-    font-size: 1rem;
-  }
-  .whoiam-photo img {
-    max-width: 220px;
-  }
+  .whoiam-text { font-size: 1rem; }
+  .whoiam-photo img { max-width: 220px; }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+  .hero { font-size: 1.6rem; }
+  .pill { font-size: 0.75rem; padding: 5px 9px; }
+  .btn { font-size: 0.8rem; padding: 8px 14px; }
+  .whoiam-photo img { max-width: 180px; }
 }
